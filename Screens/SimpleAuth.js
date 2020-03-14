@@ -55,12 +55,20 @@ export default function Home() {
         onChangeText={text => setEmail(text)}
         value={email}
         placeholder="email"
+        autoCompleteType="email"
+        textContentType="emailAddress"
+        keyboardType="email-address"
+        autoCapitalize="none"
+        autofocus
       />
       <TextInput
         style={Styles.input}
         onChangeText={text => setPassword(text)}
         value={password}
         placeholder="Password"
+        autoCompleteType="password"
+        textContentType="password"
+        secureTextEntry
       />
       <Button onPress={Login} title="login" />
       <Button onPress={SignUp} title="SignUp" />
