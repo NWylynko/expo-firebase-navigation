@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Expo Firebase",
-    "slug": "expo-firebase",
+    "name": "Expo Firebase Navigation",
+    "slug": "expo-firebase-navigation",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
