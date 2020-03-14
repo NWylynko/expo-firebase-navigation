@@ -9,6 +9,7 @@ export default function Home() {
   const [text, setText] = useState("press the button")
 
   function getText() {
+    setText("loading...")
     fire.database()
       .ref('expo-firebase-navigation')
       .once('value')
