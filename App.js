@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Database from './Screens/Database';
 import Storage from './Screens/Storage';
+import SimpleAuth from './Screens/SimpleAuth';
 
 import './firebase' // this is just to initialise the firebase app
 
@@ -15,6 +16,7 @@ export default function App() {
       <Tab.Navigator>
         <Tab.Screen name="Database" component={Database} />
         <Tab.Screen name="Storage" component={Storage} />
+        <Tab.Screen name="Simple Auth" component={SimpleAuth} />
       </Tab.Navigator>
     </NavigationContainer>
   );
