@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Button, Image } from 'react-native';
+import { View, Button, Image, StyleSheet } from 'react-native';
 
 import fire from '../firebase'
+import Screen from '../Styles/Screen'
 
 export default function Home() {
 
@@ -15,9 +16,16 @@ export default function Home() {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={Screen.page}>
       <Button onPress={getImage} title="Show Image from firebase storage" />
-      {imageUrl ? <Image source={{ uri: imageUrl }} style={{ width: '100%', flex: 1 }} /> : null}
+      {imageUrl ? <Image source={{ uri: imageUrl }} style={Styles.image} /> : null}
     </View>
   );
 }
+
+const Styles = StyleSheet.create({
+  image: {
+    width: '100%',
+    flex: 1
+  }
+})

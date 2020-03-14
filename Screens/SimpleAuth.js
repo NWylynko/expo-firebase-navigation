@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput, StyleSheet } from 'react-native';
 
 import fire from '../firebase'
+import Screen from '../Styles/Screen'
 
 export default function Home() {
 
@@ -12,16 +13,17 @@ export default function Home() {
   const [password, setPassword] = useState("")
 
   useEffect(() => {
-    fire.auth().onAuthStateChanged(function(user) {
+    fire.auth().onAuthStateChanged(function (user) {
       if (user) {
         setlogginIn(true)
+        setError()
       } else {
         setlogginIn(false)
       }
       setLoading(false)
     });
   }, [])
-  
+
   function Login() {
     setLoading(true)
     fire.auth()
@@ -47,15 +49,15 @@ export default function Home() {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={Screen.page}>
       <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1, width: '80%' }}
+        style={Styles.input}
         onChangeText={text => setEmail(text)}
         value={email}
         placeholder="email"
       />
       <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1, width: '80%' }}
+        style={Styles.input}
         onChangeText={text => setPassword(text)}
         value={password}
         placeholder="Password"
@@ -69,3 +71,12 @@ export default function Home() {
     </View>
   );
 }
+
+const Styles = StyleSheet.create({
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    width: '80%'
+  }
+})

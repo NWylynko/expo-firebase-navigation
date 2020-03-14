@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, Button } from 'react-native';
 
 import fire from '../firebase'
+import Screen from '../Styles/Screen'
 
 export default function Home() {
 
@@ -19,7 +20,7 @@ export default function Home() {
   }
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View style={Screen.page}>
       <Text>{text}</Text>
       <Button onPress={getText} title="Retrieve text from firebase realtime database" />
     </View>
