@@ -1,11 +1,13 @@
 import firebaseConfig from './config';
 
-import app from "firebase/app";
+import fire from "firebase/app";
 
 import "firebase/database";
 import "firebase/storage"
 
-app.initializeApp(firebaseConfig);
+if (fire.apps.length === 0) {
+  fire.initializeApp(firebaseConfig);
+}
 
-export default app;
+export default fire;
 
